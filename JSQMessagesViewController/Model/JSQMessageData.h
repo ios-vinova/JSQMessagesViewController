@@ -20,8 +20,6 @@
 
 #import "JSQMessageMediaData.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 /**
  *  The `JSQMessageData` protocol defines the common interface through which 
  *  a `JSQMessagesViewController` and `JSQMessagesCollectionView` interact with message model objects.
@@ -91,6 +89,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @warning You must not return `nil` from this method.
  */
 - (NSString *)text;
+- (NSString *)profileUrl;
 
 /**
  *  @return The media item of the message.
@@ -100,5 +99,3 @@ NS_ASSUME_NONNULL_BEGIN
 - (id<JSQMessageMediaData>)media;
 
 @end
-
-NS_ASSUME_NONNULL_END

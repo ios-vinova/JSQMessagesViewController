@@ -24,7 +24,7 @@
 {
     [super awakeFromNib];
     
-    self.textColor = [UIColor whiteColor];
+//    self.textColor = [UIColor whiteColor];
     self.editable = NO;
     self.selectable = YES;
     self.userInteractionEnabled = YES;
