@@ -33,10 +33,11 @@
 
     CGFloat cornerRadius = 6.0f;
 
-    self.backgroundColor = [UIColor whiteColor];
-    self.layer.borderWidth = 0.5f;
-    self.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    self.layer.cornerRadius = cornerRadius;
+    self.backgroundColor = [UIColor blackColor];
+    self.textColor = [UIColor whiteColor];
+//    self.layer.borderWidth = 0.5f;
+//    self.layer.borderColor = [UIColor lightGrayColor].CGColor;
+//    self.layer.cornerRadius = cornerRadius;
 
     self.scrollIndicatorInsets = UIEdgeInsetsMake(cornerRadius, 0.0f, cornerRadius, 0.0f);
 
@@ -48,7 +49,7 @@
     self.userInteractionEnabled = YES;
 
     self.font = [UIFont systemFontOfSize:16.0f];
-    self.textColor = [UIColor blackColor];
+    self.textColor = [UIColor whiteColor];
     self.textAlignment = NSTextAlignmentNatural;
 
     self.contentMode = UIViewContentModeRedraw;

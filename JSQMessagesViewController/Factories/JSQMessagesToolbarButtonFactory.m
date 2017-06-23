@@ -38,7 +38,7 @@
     accessoryButton.contentMode = UIViewContentModeScaleAspectFit;
     accessoryButton.backgroundColor = [UIColor clearColor];
     accessoryButton.tintColor = [UIColor lightGrayColor];
-    
+    accessoryButton.hidden = YES;
     accessoryButton.accessibilityLabel = [NSBundle jsq_localizedStringForKey:@"accessory_button_accessibility_label"];
 
     return accessoryButton;
@@ -50,15 +50,15 @@
 
     UIButton *sendButton = [[UIButton alloc] initWithFrame:CGRectZero];
     [sendButton setTitle:sendTitle forState:UIControlStateNormal];
-    [sendButton setTitleColor:[UIColor jsq_messageBubbleBlueColor] forState:UIControlStateNormal];
-    [sendButton setTitleColor:[[UIColor jsq_messageBubbleBlueColor] jsq_colorByDarkeningColorWithValue:0.1f] forState:UIControlStateHighlighted];
+    [sendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [sendButton setTitleColor:[[UIColor whiteColor] jsq_colorByDarkeningColorWithValue:0.1f] forState:UIControlStateHighlighted];
     [sendButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
 
     sendButton.titleLabel.font = [UIFont boldSystemFontOfSize:17.0f];
     sendButton.titleLabel.adjustsFontSizeToFitWidth = YES;
     sendButton.titleLabel.minimumScaleFactor = 0.85f;
     sendButton.contentMode = UIViewContentModeCenter;
-    sendButton.backgroundColor = [UIColor clearColor];
+    sendButton.backgroundColor = [UIColor blackColor];
     sendButton.tintColor = [UIColor jsq_messageBubbleBlueColor];
 
     CGFloat maxHeight = 32.0f;

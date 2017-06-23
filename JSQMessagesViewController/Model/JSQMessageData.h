@@ -89,6 +89,7 @@
  *  @warning You must not return `nil` from this method.
  */
 - (NSString *)text;
+- (NSString *)profileUrl;
 
 /**
  *  @return The media item of the message.

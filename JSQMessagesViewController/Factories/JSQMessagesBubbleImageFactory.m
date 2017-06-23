@@ -83,12 +83,14 @@
 {
     NSParameterAssert(color != nil);
     
-    UIImage *normalBubble = [self.bubbleImage jsq_imageMaskedWithColor:color];
-    UIImage *highlightedBubble = [self.bubbleImage jsq_imageMaskedWithColor:[color jsq_colorByDarkeningColorWithValue:0.12f]];
+    UIImage *normalBubble = [UIImage jsq_bubbleCompactImage]; //[self.bubbleImage jsq_imageMaskedWithColor:color];
+    UIImage *highlightedBubble = [UIImage jsq_bubbleCompactImage]; //[self.bubbleImage jsq_imageMaskedWithColor:[color jsq_colorByDarkeningColorWithValue:0.12f]];
     
     if (flippedForIncoming) {
-        normalBubble = [self jsq_horizontallyFlippedImageFromImage:normalBubble];
-        highlightedBubble = [self jsq_horizontallyFlippedImageFromImage:highlightedBubble];
+        normalBubble = [UIImage jsq_bubbleRegularStrokedImage];
+        highlightedBubble = [UIImage jsq_bubbleRegularStrokedImage];
+//        normalBubble = [self jsq_horizontallyFlippedImageFromImage:normalBubble];
+//        highlightedBubble = [self jsq_horizontallyFlippedImageFromImage:highlightedBubble];
     }
     
     normalBubble = [self jsq_stretchableImageFromImage:normalBubble withCapInsets:self.capInsets];

@@ -118,6 +118,7 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
     self.avatarViewSize = CGSizeZero;
 
     self.cellTopLabel.textAlignment = NSTextAlignmentCenter;
+    
     self.cellTopLabel.font = [UIFont boldSystemFontOfSize:12.0f];
     self.cellTopLabel.textColor = [UIColor lightGrayColor];
 
@@ -126,7 +127,7 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
 
     self.cellBottomLabel.font = [UIFont systemFontOfSize:11.0f];
     self.cellBottomLabel.textColor = [UIColor lightGrayColor];
-
+    self.cellBottomLabel.textAlignment = NSTextAlignmentRight;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jsq_handleTapGesture:)];
     [self addGestureRecognizer:tap];
     self.tapGestureRecognizer = tap;

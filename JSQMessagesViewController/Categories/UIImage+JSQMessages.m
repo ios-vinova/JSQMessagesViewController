@@ -33,7 +33,11 @@
     UIGraphicsBeginImageContextWithOptions(imageRect.size, NO, self.scale);
     {
         CGContextRef context = UIGraphicsGetCurrentContext();
+//        CGContextSetLineWidth(context, 5);
+//        CGContextStrokeRect(context, imageRect);
+//        CGContextSetStrokeColor(context, CGColorGetComponents([UIColor whiteColor].CGColor));
         
+//        CGContextSetShadowWithColor(context, CGSizeMake(0, 4), 4, [UIColor whiteColor].CGColor);
         CGContextScaleCTM(context, 1.0f, -1.0f);
         CGContextTranslateCTM(context, 0.0f, -(imageRect.size.height));
         
@@ -46,6 +50,27 @@
     UIGraphicsEndImageContext();
     
     return newImage;
+//    return [self imageBorderedWithColor:maskColor borderWidth:2.0];
+}
+-(UIImage *)imageBorderedWithColor:(UIColor *)color borderWidth:(CGFloat)width
+{
+    CGRect imageRect = CGRectMake(0.0f, 0.0f, self.size.width, self.size.height);
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, self.scale);
+    [self drawAtPoint:CGPointZero];
+    [[UIColor whiteColor] setStroke];
+    UIBezierPath *path = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, self.size.width, self.size.height)];
+    path.lineWidth = width;
+    [path stroke];
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextScaleCTM(context, 1.0f, -1.0f);
+    CGContextTranslateCTM(context, 0.0f, -(imageRect.size.height));
+    
+    CGContextClipToMask(context, imageRect, self.CGImage);
+    CGContextSetFillColorWithColor(context, color.CGColor);
+    CGContextFillRect(context, imageRect);
+    UIImage *result = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return result;
 }
 
 + (UIImage *)jsq_bubbleImageFromBundleWithName:(NSString *)name

@@ -47,21 +47,27 @@
     self = [super init];
     if (self) {
         _dateFormatter = [[NSDateFormatter alloc] init];
-        [_dateFormatter setLocale:[NSLocale currentLocale]];
+//        [_dateFormatter setLocale:[NSLocale currentLocale]];
+        [self.dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
         [_dateFormatter setDoesRelativeDateFormatting:YES];
         
         UIColor *color = [UIColor lightGrayColor];
         
-        NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-        paragraphStyle.alignment = NSTextAlignmentCenter;
+//        NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+//        paragraphStyle.alignment = NSTextAlignmentCenter;
         
+//        _dateTextAttributes = @{ NSFontAttributeName : [UIFont boldSystemFontOfSize:12.0f],
+//                                 NSForegroundColorAttributeName : color,
+//                                 NSParagraphStyleAttributeName : paragraphStyle };
         _dateTextAttributes = @{ NSFontAttributeName : [UIFont boldSystemFontOfSize:12.0f],
-                                 NSForegroundColorAttributeName : color,
-                                 NSParagraphStyleAttributeName : paragraphStyle };
+                                 NSForegroundColorAttributeName : color};
+        
+//        _timeTextAttributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:12.0f],
+//                                 NSForegroundColorAttributeName : color,
+//                                 NSParagraphStyleAttributeName : paragraphStyle };
         
         _timeTextAttributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:12.0f],
-                                 NSForegroundColorAttributeName : color,
-                                 NSParagraphStyleAttributeName : paragraphStyle };
+                                 NSForegroundColorAttributeName : color };
     }
     return self;
 }
@@ -73,7 +79,7 @@
     if (!date) {
         return nil;
     }
-    
+    [self.dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
     [self.dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [self.dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     return [self.dateFormatter stringFromDate:date];
@@ -104,7 +110,7 @@
     if (!date) {
         return nil;
     }
-    
+    [self.dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
     [self.dateFormatter setDateStyle:NSDateFormatterNoStyle];
     [self.dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     return [self.dateFormatter stringFromDate:date];
@@ -115,7 +121,7 @@
     if (!date) {
         return nil;
     }
-    
+    [self.dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
     [self.dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [self.dateFormatter setTimeStyle:NSDateFormatterNoStyle];
     return [self.dateFormatter stringFromDate:date];

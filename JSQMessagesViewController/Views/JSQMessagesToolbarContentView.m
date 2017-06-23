@@ -61,7 +61,7 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
     self.leftHorizontalSpacingConstraint.constant = kJSQMessagesToolbarContentViewHorizontalSpacingDefault;
     self.rightHorizontalSpacingConstraint.constant = kJSQMessagesToolbarContentViewHorizontalSpacingDefault;
 
-    self.backgroundColor = [UIColor clearColor];
+    self.backgroundColor = [UIColor blackColor];
 }
 
 #pragma mark - Setters
@@ -69,8 +69,8 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
 - (void)setBackgroundColor:(UIColor *)backgroundColor
 {
     [super setBackgroundColor:backgroundColor];
-    self.leftBarButtonContainerView.backgroundColor = backgroundColor;
-    self.rightBarButtonContainerView.backgroundColor = backgroundColor;
+    self.leftBarButtonContainerView.backgroundColor = [UIColor blackColor];//backgroundColor;
+    self.rightBarButtonContainerView.backgroundColor = [UIColor blackColor];//backgroundColor;
 }
 
 - (void)setLeftBarButtonItem:(UIButton *)leftBarButtonItem
@@ -91,7 +91,7 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
         leftBarButtonItem.frame = self.leftBarButtonContainerView.bounds;
     }
 
-    self.leftBarButtonContainerView.hidden = NO;
+    self.leftBarButtonContainerView.hidden = YES;
     self.leftHorizontalSpacingConstraint.constant = kJSQMessagesToolbarContentViewHorizontalSpacingDefault;
     self.leftBarButtonItemWidth = CGRectGetWidth(leftBarButtonItem.frame);
 
